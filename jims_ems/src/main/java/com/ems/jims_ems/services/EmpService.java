@@ -21,7 +21,7 @@ public class EmpService {
     public Employee getEmpById(Long id) {
         return empServiceImpl.findById(id).orElse(null);
     }
-    
+
     public Employee saveEmp(Employee emp) {
         return empServiceImpl.save(emp);
     }

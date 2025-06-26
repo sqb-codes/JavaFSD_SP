@@ -19,4 +19,14 @@ public class EmpController {
     public Employee createEmp(@RequestBody Employee emp) {
         return empService.saveEmp(emp);
     }
+
+    @GetMapping
+    public List<Employee> getAllEmp() {
+        return empService.getAllEmp();
+    }
+
+    @GetMapping("/{id}")
+    public Employee getEmpById(@PathVariable Long id) {
+        return empService.getEmpById(id);
+    }
 }

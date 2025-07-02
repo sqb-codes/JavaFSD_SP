@@ -13,6 +13,7 @@ App.css
 Edit App.jsx
 
 Install Tailwind
-npm install -D tailwindcss postcss autoprefixer
-npm tailwind init -p
+npm install tailwindcss @tailwindcss/vite
 
+Follow this URL for integrating Tailwind
+https://tailwindcss.com/docs/installation/using-vite

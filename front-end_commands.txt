@@ -1,0 +1,18 @@
+1. npm create vite@latest jira-frontend
+Select framework - React
+Select Variant - Javascript
+
+2. cd jira-frontend
+3. npm install
+4. npm run dev
+
+clear these files:
+index.css
+App.css
+
+Edit App.jsx
+
+Install Tailwind
+npm install -D tailwindcss postcss autoprefixer
+npm tailwind init -p
+

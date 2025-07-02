@@ -23,7 +23,7 @@ public class Project {
     private String description;
 
     @ManyToOne
-    private User user;
+    private User createdBy;
 
     private LocalDateTime createdAt;
 

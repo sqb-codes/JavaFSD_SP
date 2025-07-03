@@ -1,5 +1,7 @@
 package com.jira.jira.controller;
 
+import com.jira.jira.dto.AuthRequest;
+import com.jira.jira.dto.AuthResponse;
 import com.jira.jira.dto.RegisterUser;
 import com.jira.jira.entity.User;
 import com.jira.jira.repository.UserRepository;
@@ -8,6 +10,8 @@ import com.jira.jira.util.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,6 +40,18 @@ public class AuthController {
                 .build();
         userRepository.save(user);
         return  ResponseEntity.ok("User registered...");
+    }
+
+    @CrossOrigin
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(authRequest.getUsername(),
+                        authRequest.getPassword())
+        );
+        UserDetails userDetails = userDetailService.loadUserByUsername(authRequest.getUsername());
+        String token = jwtUtil.generateToken(userDetails);
+        return ResponseEntity.ok(new AuthResponse(token));
     }
 
 }

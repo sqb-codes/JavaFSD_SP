@@ -34,7 +34,7 @@ public class AuthController {
         User user = User.builder()
                 .username(request.getUsername())
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
                 .createdAt(LocalDateTime.now())
                 .build();

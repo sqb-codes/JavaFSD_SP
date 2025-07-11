@@ -12,6 +12,7 @@ import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
@@ -33,6 +34,7 @@ public class ProjectController {
     }
 
     // TODO-Create getUserProjects function
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<Project>> getUserProjects(Principal principal) {
         User user = userRepository.findByUsername(principal.getName()).orElseThrow();

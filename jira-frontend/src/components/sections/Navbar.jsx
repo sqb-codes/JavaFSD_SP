@@ -27,7 +27,7 @@ function Navbar() {
                     
                     {role === "ADMIN" && (
                         <>
-                            <Link to="/projects" className="hover:underline">Add Project</Link>
+                            <Link to="/projects/new" className="hover:underline">Add Project</Link>
                             <Link to="/issue" className="hover:underline">Create Issue</Link>
                         </>
                     )}

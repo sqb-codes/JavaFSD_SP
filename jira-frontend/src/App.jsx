@@ -4,6 +4,8 @@ import { Register } from './components/auth/Register'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Dashboard } from './components/pages/Dashboard';
 import Navbar from './components/sections/Navbar';
+import { AdminRoutes } from './components/routes/AdminRoutes';
+import { AddProject } from './components/pages/AddProject';
 
 function App() {
   return (
@@ -17,6 +19,15 @@ function App() {
             <Route path='/register' element={<Register/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/dashboard' element={<Dashboard/>} />
+            {/* Protecting routes for admin */}
+            <Route
+              path='/projects/new'
+              element={
+                <AdminRoutes>
+                  <AddProject/>
+                </AdminRoutes>
+              }
+            />
           </Routes>
         </Router>
 

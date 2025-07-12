@@ -6,6 +6,7 @@ import { Dashboard } from './components/pages/Dashboard';
 import Navbar from './components/sections/Navbar';
 import { AdminRoutes } from './components/routes/AdminRoutes';
 import { AddProject } from './components/pages/AddProject';
+import CreateIssue from './components/pages/CreateIssue';
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
               element={
                 <AdminRoutes>
                   <AddProject/>
+                </AdminRoutes>
+              }
+            />
+            <Route
+              path='/issues/new'
+              element={
+                <AdminRoutes>
+                  <CreateIssue/>
                 </AdminRoutes>
               }
             />
